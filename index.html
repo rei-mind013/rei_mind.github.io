@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+</head>
+
+<body class="#top">
+    
+    <header>
+        <h1 class="header1">Geoven Rei</h1>
+        <div class="intro_panel">
+            <nav class="intro_nav">
+                <a href="#top">➥ Introduction</a>
+                <a href="#about">➥ About Me</a>
+                <a href="#projects">➥ Projects</a>
+                <a href="#contact">➥ Contact</a>
+            </nav>
+            <audio id="hoverSound">
+                <source src="SoundEffects/mixkit5.wav" type="audio/wav">
+            </audio>
+
+            <audio id="clickSound">
+                <source src="SoundEffects/mixkit4.wav" type="audio/wav">
+            </audio>
+
+            <script>
+                const hoverSound = document.getElementById("hoverSound");
+                const navButtons = document.querySelectorAll(".intro_nav a");
+
+                navButtons.forEach(button => {
+                    button.addEventListener("mouseenter", () => {
+                        hoverSound.currentTime = 0;
+                        hoverSound.play();
+                    });
+
+                     button.addEventListener("click", () => {
+                        clickSound.currentTime = 0;
+                         clickSound.play();
+                    });
+                });
+            </script>
+
+        </div>
+        <h1 class="header2">Powered by rei.MIND</h1>
+    </header>
+
+<div class="itemsNav_panel">
+
+    <section id="top">
+        <h2 class="intro_h2">Introduction</h2>
+        <div class="intro_label">
+
+            <img src="webImages/spyBG.png" alt="intro_bg" class="introBG_img">
+
+            <label class="label1">rei.MIND</label>
+            <label class="label2">Software Developer</label>
+            <label class="exten_label1">
+                C# • .NET • WinForms • SQL
+            </label>
+            <label class="label3">EXPLORING</label>
+            <label class="exten_label2">
+                HTML • CSS • JavaScript • Mobile Development
+            </label>
+            <label class="label4">
+            <span>WORK.</span>
+            <span>ERROR.</span>
+            <span>DISCOVER.</span>
+            <span>LEARN</span>
+            </label>
+        </div>
+    </section>
+    
+    <section id="about">
+        <h2 class="about_h2">About Me</h2>
+        <div class="about_panel">
+
+            <img src="webImages/formal.png" alt="" class="formal_img" id="formal">
+
+            <audio id="clickSwitch">
+                <source src="SoundEffects/mixkit6.wav" type="audio/wav" id="click_sw">
+            </audio>
+
+                        <script>
+                            const profileImg = document.getElementById("formal");
+                            const clickSwitch = document.getElementById("clickSwitch");
+
+                            let isAnimated = false;
+
+                            profileImg.addEventListener("click", () => {
+
+                                clickSwitch.currentTime = 0;
+                                clickSwitch.play();
+
+                                if (isAnimated) {
+                                    profileImg.src = "webImages/formal.png";
+                                } else {
+                                    profileImg.src = "webImages/animated.png";
+                                }
+
+                                isAnimated = !isAnimated;
+                            });
+                        </script>
+
+            <p class="about_p">Hi, I'm Geoven Rei, a Software Developer with a strong focus on C#/.NET, WinForms, and SQL. I am also expanding my
+            skills in web and mobile development, particularly in HTML, CSS, JavaScript, and mobile technologies. I enjoy exploring
+            new ideas, improving my skills, and applying both new and existing knowledge to build useful and meaningful
+            applications.</p>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2 class="project_h2">Projects</h2>
+    
+        <div class="project_panel">
+    
+            <div class="project_card">
+                <img src="webImages/setup.png" alt="setup">
+                <h3>Setup</h3>
+            </div>
+    
+            <div class="project_card">
+                <img src="webImages/login.png" alt="login">
+                <h3>Log In</h3>
+            </div>
+    
+            <div class="project_card">
+                <img src="webImages/dashboard.png" alt="dashboard">
+                <h3>Dashboard</h3>
+            </div>
+    
+            <a href="https://github.com/rei-mind013/iTinda_mypos.rei_MIND.git" class="github_btn">
+                ᨐฅ VIEW GITHUB ᯓ➤
+            </a>
+
+            <audio id="cardSound">
+                <source src="SoundEffects/mixkit6.wav" type="audio/wav">
+            </audio>
+            
+            <audio id="buttonHoverSound">
+                <source src="SoundEffects/mixkit5.wav" type="audio/wav">
+            </audio>
+            
+            <audio id="buttonClickSound">
+                <source src="SoundEffects/mixkit4.wav" type="audio/wav">
+            </audio>
+
+            <script>
+                const cards = document.querySelectorAll(".project_card");
+                const githubBtn = document.querySelector(".github_btn");
+
+                const cardSound = document.getElementById("cardSound");
+                const buttonHoverSound = document.getElementById("buttonHoverSound");
+                const buttonClickSound = document.getElementById("buttonClickSound");
+
+                cards.forEach(card => {
+                    card.addEventListener("mouseenter", () => {
+                        cardSound.currentTime = 0;
+                        cardSound.play();
+                    });
+                });
+
+                githubBtn.addEventListener("mouseenter", () => {
+                    buttonHoverSound.currentTime = 0;
+                    buttonHoverSound.play();
+                });
+
+                githubBtn.addEventListener("click", () => {
+                    buttonClickSound.currentTime = 0;
+                    buttonClickSound.play();
+                });
+            </script>
+    
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2 class="contact_h2">Contact</h2>
+        <div class="contact_label">
+            <label class="number_lbl">☎   +639676856019</label>
+            <label class="email_lbl">✉   estonidorei@gmail.com</label>
+            <label class="github_lbl">
+            ᨐฅ   rei-mind013
+            </label>
+        </div>
+    </section>
+
+    <footer class="end_content">
+        <p>© 2026 Geoven Rei — rei.MIND</p>
+        <p>WORK. ERROR. DISCOVER. LEARN.</p>
+    </footer>
+</div>
+
+</body>
+</html>

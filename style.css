@@ -1,0 +1,355 @@
+body{
+    margin: 0%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(141, 139, 136, 0.995);   
+}
+html {
+    scroll-behavior: smooth;
+}
+header {
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+}
+.header1 {
+    margin-left: 10px;
+    font-size: clamp(18px, 2vw, 180px);
+}
+
+.header2 {
+    color: darkgoldenrod;
+    font-size: 20px;
+    padding-top: 15px;
+    font-weight: 400;
+    font-size: clamp(10px, 1vw, 180px);
+}
+.intro_nav a {
+    text-transform: uppercase;
+    margin: 0 5px;
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border: 1px solid darkgoldenrod;
+    width: auto;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: none;
+    display: inline-block;
+    font-size: clamp(0px, 1vw, 180px);
+}
+
+.intro_nav a:hover {
+    background-color: darkgoldenrod;
+    color: black;
+}
+.itemsNav_panel{
+    padding: 1rem;
+    margin: 100px 100px 30px 100px;
+    background-color: rgba(0, 0, 0, 0.397);
+    border-radius: 10px;
+    position: flex;
+}
+section{
+    margin: 12px auto;
+    text-align: center;
+    scroll-margin-top: 100px;
+}
+.intro_h2{
+    font-size: 2rem;
+    color: rgb(236, 181, 43);
+}
+.intro_h2 {
+    animation: flickerLight 3s infinite;
+}
+
+@keyframes flickerLight {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 5px darkgoldenrod,
+            0 0 10px rgb(193, 173, 122);
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.3;
+        text-shadow: none;
+    }
+}
+.intro_label {
+        display: grid;
+        gap: 10px;
+        background-color: rgba(141, 139, 136, 0.995);
+        padding: 65px;
+        border-radius: 30px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+
+    .label1 {
+        color: white;
+        font-size: clamp(30px, 10vw, 180px);
+    }
+
+    .label2 {
+        color: wheat;
+        text-shadow: 0px 5px 10px rgb(123, 121, 121);
+        font-size: clamp(10px, 1.9vw, 180px);
+    }
+          .exten_label1 {
+              color: rgb(231, 158, 12);
+          }
+    .label3{
+        color: wheat;
+            text-shadow: 0px 5px 10px rgb(123, 121, 121);
+            font-size: clamp(10px, 1.8vw, 180px);
+    }
+    .exten_label2{
+        color: rgb(231, 158, 12);
+    }
+
+    .label4 {
+        text-transform: uppercase;
+        font-size: clamp(9px, 1.5vw, 180px);
+    }
+
+}
+.introBG_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.intro_label>label {
+    position: relative;
+    z-index: 1;
+}
+.label4 span {
+    opacity: 0;
+    display: row;
+    gap: 3px;
+    animation: wordGold 8s infinite;
+}
+
+.label4 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.label4 span:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.label4 span:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.label4 span:nth-child(4) {
+    animation-delay: 6s;
+}
+
+    @keyframes wordGold {
+
+        0%,
+        20% {
+            opacity: 1;
+            color: darkgoldenrod;
+            text-shadow: 0px 0px 10px orange;
+            font-weight: bold;
+            transform: scale(1.5);
+        }
+
+        22%,
+        99% {
+            opacity: 0;
+            color: black;
+            font-weight: 400;
+            transform: scale(1);
+        }
+        100% {
+                opacity: 1;
+                color: black;
+                text-shadow: none;
+                font-weight: 400;
+                transform: scale(1);
+        }
+    }
+.about_panel{
+        background-color: rgba(141, 139, 136, 0.995);
+        border-radius: 30px;
+        padding: 35px;
+
+        background-image: url("webImages/spyBG.png");
+        image-rendering: optimizeQuality;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
+        background-color: rgba(125, 125, 125, 0.981);
+    }
+.about_h2{
+    font-size: 2rem;
+    color:rgba(236,
+        181,
+        43);
+    animation: flickerLight 3s infinite;
+}
+.formal_img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 1rem auto;
+
+    border: 4px solid darkgoldenrod;
+}
+.about_p {
+    font-size: 1.2rem;
+    color: darkgoldenrod;
+    max-width: 600px;
+    margin: 1rem auto;
+
+    border-radius: 30px;
+    border: 1px solid darkgoldenrod;
+
+    padding: 1rem;
+    box-shadow: 3px 5px 5px darkgoldenrod;
+    background-color: rgba(0, 0, 0);
+}
+.about_label {
+
+    label {
+        display: grid;
+        gap: 10px;
+        border: 1px solid black;
+        margin: 5px auto;
+    }
+}
+.project_h2{
+    font-size: 2rem;
+    color: rgb(236, 181, 43);
+    animation: flickerLight 3s infinite;
+}
+.project_panel {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 110px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    background-color: rgba(141, 139, 136, 0.995);
+    border-radius: 20px;
+
+    background-image: url("webImages/spyBG.png");
+        image-rendering: optimizeQuality;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
+        background-color: rgba(125, 125, 125, 0.981);
+}
+
+.project_panel::-webkit-scrollbar {
+    height: 4px;
+}
+
+.project_panel::-webkit-scrollbar-thumb {
+    background-color: darkgoldenrod;
+    border-radius: 10px;
+}
+
+.project_card {
+    flex: 0 0 350px;
+    scroll-snap-align: center;
+    background-color: black;
+    border: 1px solid darkgoldenrod;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 3px 5px 8px rgb(37, 36, 36);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 15px darkgoldenrod;
+}
+
+.project_card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.project_card h3 {
+    color: darkgoldenrod;
+    font-size: 1.3rem;
+    margin: 15px 0 5px;
+}
+
+.github_btn {
+    flex: 0 0 auto;
+    padding: 12px 20px;
+    background-color: darkgoldenrod;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+    scroll-snap-align: center;
+    transition: 0.3s ease;
+}
+
+.github_btn:hover {
+    background-color: black;
+    color: darkgoldenrod;
+    border-color: darkgoldenrod;
+}
+.contact_h2{
+    font-size: 2rem;
+    color: rgb(236, 181, 43);
+    animation: flickerLight 3s infinite;
+}
+.contact_label{
+    padding: 205px;
+    display: grid;
+    gap: 5px;
+    font-size: 20px;
+
+    background-image: url("webImages/spyBG.png");
+        image-rendering: optimizeQuality;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
+        background-color: rgba(125, 125, 125, 0.981);
+
+        border-radius: 30px;
+
+        label{
+            text-align: Left;
+            margin-left: 38%;
+            color: rgb(236, 181, 43);
+        }
+}
+.end_content{
+    text-align: center;
+    font-size: 12px;
+    color: whitesmoke;
+}
