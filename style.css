@@ -327,25 +327,78 @@ section{
     color: rgb(236, 181, 43);
     animation: flickerLight 3s infinite;
 }
-.contact_label{
-    padding: 205px;
+.contact_label {
+    padding: 150px;
     display: grid;
     gap: 5px;
     font-size: 20px;
-
+    text-align: justify;
     background-image: url("webImages/spyBG.png");
-        image-rendering: optimizeQuality;
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: overlay;
-        background-color: rgba(125, 125, 125, 0.981);
+    image-rendering: optimizeQuality;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgba(125, 125, 125, 0.981);
+    border-radius: 30px;
+}
 
-        border-radius: 30px;
+.contact_label label {
+    color: rgb(236, 181, 43);
+    display: block;
+    margin-bottom: 10px;
+}
 
-        label{
-            text-align: center;
-            color: rgb(236, 181, 43);
-        }
+.contact_label h2 {
+    color: rgb(236, 181, 43);
+}
+.contact_label b{
+    color:whitesmoke;
+    text-shadow: 0px 3px 5px rgb(236, 181, 43);
+}
+
+.image-slider {
+    width: 450px;
+    overflow: hidden;
+    margin-left: auto;
+    border-radius: 20px;
+}
+
+.slider-track {
+    display: flex;
+    width: max-content;
+    animation: slideImages 12s linear infinite;
+}
+
+.slider-track img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin: 0 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(236, 181, 43, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.slider-track img:hover {
+    transform: scale(1.08);
+    border-color: rgb(236, 181, 43);
+    box-shadow: 0 10px 30px rgba(236, 181, 43, 0.3);
+}
+
+@keyframes slideImages {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-600px);
+    }
 }
 .end_content{
     text-align: center;
