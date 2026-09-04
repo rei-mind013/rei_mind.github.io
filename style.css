@@ -343,8 +343,7 @@ section{
         border-radius: 30px;
 
         label{
-            text-align: Left;
-            margin-left: 38%;
+            text-align: center;
             color: rgb(236, 181, 43);
         }
 }
