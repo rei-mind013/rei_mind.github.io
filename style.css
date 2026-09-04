@@ -9,8 +9,28 @@ html {
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(141, 139, 136, 0.995);
+    background:
+        radial-gradient(circle at 20% 30%,
+            rgba(184, 134, 11, 0.12),
+            transparent 28%),
+        radial-gradient(circle at 80% 70%,
+            rgba(236, 181, 43, 0.08),
+            transparent 28%),
+        #101010;
+    color: white;
     overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+}
+
+#matrix-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.65;
 }
 
 header {
@@ -70,7 +90,7 @@ header {
 
 .itemsNav_panel {
     padding: 1rem;
-    margin: 100px 100px 30px 100px;
+    margin: 100px 100px 30px;
     background-color: rgba(0, 0, 0, 0.397);
     border-radius: 10px;
     position: relative;
@@ -79,7 +99,7 @@ header {
 section {
     margin: 12px auto;
     text-align: center;
-    scroll-margin-top: 120px;
+    scroll-margin-top: 80px;
 }
 
 .intro_h2,
@@ -249,15 +269,60 @@ section {
 }
 
 .about_p {
-    font-size: 1.2rem;
-    color: darkgoldenrod;
-    max-width: 600px;
-    margin: 1rem auto;
-    border-radius: 30px;
+    width: min(90%, 700px);
+    margin: 1.5rem auto;
+    padding: 1.5rem 1.8rem;
+    background-color: rgba(0, 0, 0, 0.92);
     border: 1px solid darkgoldenrod;
-    padding: 1rem;
-    box-shadow: 3px 5px 5px darkgoldenrod;
-    background-color: rgba(0, 0, 0, 1);
+    border-radius: 20px;
+    color: whitesmoke;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    text-align: left;
+    box-shadow: 0 0 8px rgba(184, 134, 11, 0.3);
+    animation: aboutGlow 3s ease-in-out infinite;
+}
+
+@keyframes aboutGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(184, 134, 11, 0.25);
+        border-color: darkgoldenrod;
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(236, 181, 43, 0.6);
+        border-color: rgb(236, 181, 43);
+    }
+}
+
+.commission_p {
+    width: min(90%, 700px);
+    margin: 1rem auto 0;
+    padding: 1.2rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px solid darkgoldenrod;
+    border-left: 5px solid rgb(236, 181, 43);
+    border-radius: 15px;
+    color: rgb(236, 181, 43);
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.commission_p:hover {
+    transform: translateY(-4px);
+    border-color: rgb(236, 181, 43);
+    box-shadow:
+        0 8px 20px rgba(236, 181, 43, 0.35),
+        0 0 15px rgba(236, 181, 43, 0.2);
 }
 
 .project_panel {
@@ -290,31 +355,93 @@ section {
 
 .project_card {
     flex: 0 0 350px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
     scroll-snap-align: center;
     background-color: black;
     border: 1px solid darkgoldenrod;
     border-radius: 20px;
-    padding: 15px;
-    box-shadow: 3px 5px 8px rgb(37, 36, 36);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:
+        3px 5px 8px rgb(37, 36, 36);
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+    cursor: pointer;
 }
 
 .project_card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 8px 15px darkgoldenrod;
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgb(236, 181, 43);
+    box-shadow:
+        0 8px 15px darkgoldenrod,
+        0 0 30px rgba(236, 181, 43, 0.45);
 }
 
 .project_card img {
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 20px;
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
 }
 
-.project_card h3 {
-    color: darkgoldenrod;
-    font-size: 1.3rem;
-    margin: 15px 0 5px;
+.project_card:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.4);
+}
+
+.project_info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px 20px;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.98),
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0));
+    transform: translateY(65px);
+    opacity: 0;
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
+}
+
+.project_card:hover .project_info {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project_name {
+    display: block;
+    margin-bottom: 3px;
+    color: rgb(236, 181, 43);
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 5px darkgoldenrod,
+        0 0 10px rgba(236, 181, 43, 0.5);
+}
+
+.project_info h3 {
+    margin: 0 0 8px;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.project_info p {
+    margin: 0;
+    color: whitesmoke;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
 }
 
 .github_btn {
@@ -340,7 +467,8 @@ section {
 .contact_label {
     padding: 80px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 450px);
+    grid-template-columns:
+        minmax(0, 1fr) minmax(300px, 450px);
     align-items: center;
     gap: 50px;
     font-size: 20px;
@@ -372,7 +500,8 @@ section {
 
 .contact_label b {
     color: whitesmoke;
-    text-shadow: 0px 3px 5px rgb(236, 181, 43);
+    text-shadow:
+        0px 3px 5px rgb(236, 181, 43);
 }
 
 .contact_label a {
@@ -417,8 +546,10 @@ section {
     background: rgba(55, 55, 55, 0.8);
     border: 2px solid rgba(236, 181, 43, 0.5);
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease,
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.4);
+    transition:
+        transform 0.3s ease,
         border-color 0.3s ease,
         box-shadow 0.3s ease;
 }
@@ -438,7 +569,8 @@ section {
 .slider-card:hover {
     transform: scale(1.05);
     border-color: rgb(236, 181, 43);
-    box-shadow: 0 10px 30px rgba(236, 181, 43, 0.3);
+    box-shadow:
+        0 10px 30px rgba(236, 181, 43, 0.3);
 }
 
 @keyframes slideImages {
@@ -495,6 +627,11 @@ section {
         padding: 30px;
     }
 
+    .about_p,
+    .commission_p {
+        width: min(90%, 650px);
+    }
+
     .project_panel {
         padding: 70px 30px;
         gap: 20px;
@@ -502,11 +639,13 @@ section {
 
     .project_card {
         flex: 0 0 300px;
+        height: 280px;
     }
 
     .contact_label {
         padding: 60px 40px;
-        grid-template-columns: minmax(0, 1fr) 350px;
+        grid-template-columns:
+            minmax(0, 1fr) 350px;
         gap: 30px;
     }
 
@@ -562,6 +701,7 @@ section {
     section {
         margin: 10px auto;
         padding: 0;
+        scroll-margin-top: 170px;
     }
 
     .intro_h2,
@@ -603,9 +743,17 @@ section {
     }
 
     .about_p {
-        width: 90%;
+        width: 95%;
         font-size: 1rem;
-        box-sizing: border-box;
+        line-height: 1.75;
+        padding: 1.3rem 1.2rem;
+    }
+
+    .commission_p {
+        width: 95%;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        padding: 1.2rem;
     }
 
     .project_panel {
@@ -615,10 +763,19 @@ section {
 
     .project_card {
         flex: 0 0 280px;
+        height: 260px;
     }
 
-    .project_card img {
-        height: 180px;
+    .project_info {
+        padding: 20px 15px;
+    }
+
+    .project_info h3 {
+        font-size: 1.3rem;
+    }
+
+    .project_info p {
+        font-size: 0.9rem;
     }
 
     .contact_label {
@@ -682,6 +839,7 @@ section {
 
     section {
         padding: 0 3px;
+        scroll-margin-top: 200px;
     }
 
     .intro_h2,
@@ -725,7 +883,17 @@ section {
     .about_p {
         width: 100%;
         font-size: 0.9rem;
+        line-height: 1.7;
         padding: 12px;
+        border-radius: 15px;
+    }
+
+    .commission_p {
+        width: 100%;
+        font-size: 0.85rem;
+        line-height: 1.65;
+        padding: 12px;
+        border-radius: 12px;
     }
 
     .project_panel {
@@ -736,15 +904,25 @@ section {
 
     .project_card {
         flex: 0 0 240px;
-        padding: 10px;
+        height: 230px;
+        padding: 0;
     }
 
-    .project_card img {
-        height: 150px;
+    .project_info {
+        padding: 16px 12px;
     }
 
-    .project_card h3 {
+    .project_name {
+        font-size: 0.7rem;
+    }
+
+    .project_info h3 {
         font-size: 1.1rem;
+    }
+
+    .project_info p {
+        font-size: 0.78rem;
+        line-height: 1.45;
     }
 
     .github_btn {
